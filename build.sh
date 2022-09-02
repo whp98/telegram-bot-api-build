@@ -1,5 +1,4 @@
 #!/bin/sh
-
 echo '
 # clang
 deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main
