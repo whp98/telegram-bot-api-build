@@ -21,8 +21,7 @@ rm -rf build
 mkdir build
 cd build
 export CXXFLAGS="-stdlib=libc++"
-export CC=/usr/bin/clang-14 
-export CXX=/usr/bin/clang++-14 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=.. ..
+CC=/usr/bin/clang-14 CXX=/usr/bin/clang++-14 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=.. ..
 cmake --build . --target install
 cd ../..
 ls -l telegram-bot-api/bin/telegram-bot-api*
