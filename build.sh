@@ -11,7 +11,6 @@
 # ' >> /etc/apt/sources.list
 # cat /etc/apt/sources.list
 # wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
-sudo apt remove libstdc++-10-dev
 sudo apt-get update
 sudo apt-get upgrade
 # sudo apt-get install clang-14 lldb-14 lld-14
@@ -21,7 +20,9 @@ cd telegram-bot-api
 rm -rf build
 mkdir build
 cd build
-CXXFLAGS="-stdlib=libc++" CC=/usr/bin/clang-14 CXX=/usr/bin/clang++-14 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=.. ..
+export CXXFLAGS="-stdlib=libc++"
+export CC=/usr/bin/clang-14 
+export CXX=/usr/bin/clang++-14 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=.. ..
 cmake --build . --target install
 cd ../..
 ls -l telegram-bot-api/bin/telegram-bot-api*
