@@ -1,7 +1,7 @@
 name: build-linux-action
 on: [push]
 jobs:
-  check-bats-version:
+  build-linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
