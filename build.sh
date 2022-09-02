@@ -1,4 +1,6 @@
 #!/bin/sh
+deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main
+deb-src http://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install make git zlib1g-dev libssl-dev gperf cmake clang-14 libc++-dev libc++abi-dev
