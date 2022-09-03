@@ -10,3 +10,5 @@ cmake -DCMAKE_BUILD_TYPE=Release -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl/ -DCM
 cmake --build . --target install
 cd ../..
 ls -l telegram-bot-api/bin/telegram-bot-api*
+
+zip -r -X telegram-bot-api-macos-intel.zip   telegram-bot-api/bin

@@ -14,29 +14,6 @@ jobs:
   #     with:
   #       name: telegram-bot-api-macos-build-m1
   #       path: telegram-bot-api/bin/
-  build-freebsd-bin:
-    runs-on: macos-12
-    name: A job to run test in FreeBSD
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build in FreeBSD
-      id: build
-      uses: vmactions/freebsd-vm@v0
-      with:
-        usesh: true
-        mem: 4096
-        prepare: |
-          pkg install -y curl
-          pkg upgrade  -y
-          pkg install  -y git
-          pkg install  -y gperf
-          pkg install  -y cmake
-        run: |
-         sh ./build-freebsd.csh
-    - name: Upload Artifact[free-bsd]
-      uses: actions/upload-artifact@v1.0.0
-      with:
-        name: telegram-bot-api-free-bsd
-        path: telegram-bot-api/bin/
+
 
 

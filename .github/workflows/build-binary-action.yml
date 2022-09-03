@@ -14,6 +14,20 @@ jobs:
         with:
           name: telegram-bot-api-linux-clang-build-x64
           path: telegram-bot-api/bin/
+      - name: Generate Zip
+        run: |
+          sudo apt-get install zip
+          zip -9 telegram-bot-api-linux-clang-build-x64.zip telegram-bot-api/bin/*
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # 上传网址，无需改动
+          asset_path: telegram-bot-api-linux-clang-build-x64.zip # 上传路径
+          asset_name: telegram-bot-api-linux-clang-build-x64.zip # 资源名
+          asset_content_type: application/zip
   build-linux-gpp:
     runs-on: ubuntu-latest
     steps:
@@ -24,6 +38,20 @@ jobs:
         with:
           name: telegram-bot-api-linux-g++-build-x64
           path: telegram-bot-api/bin/
+      - name: Generate Zip
+        run: |
+          sudo apt-get install zip
+          zip -9 telegram-bot-api-linux-g++-build-x64.zip telegram-bot-api/bin/*
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # 上传网址，无需改动
+          asset_path: telegram-bot-api-linux-g++-build-x64.zip # 上传路径
+          asset_name: telegram-bot-api-linux-g++-build-x64.zip # 资源名
+          asset_content_type: application/zip
   build-windows-x64:
     runs-on: windows-latest
     steps:
@@ -39,6 +67,16 @@ jobs:
         with:
           name: telegram-bot-api-Windows-msvc-build-x64
           path: telegram-bot-api\bin\
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # 上传网址，无需改动
+          asset_path: telegram-bot-api-windows-x64.zip # 上传路径
+          asset_name: telegram-bot-api-windows-x64.zip # 资源名
+          asset_content_type: application/zip
   build-windows-x86:
     runs-on: windows-latest
     steps:
@@ -54,6 +92,16 @@ jobs:
         with:
           name: telegram-bot-api-Windows-msvc-build-x86
           path: telegram-bot-api\bin\
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # 上传网址，无需改动
+          asset_path: telegram-bot-api-windows-x86.zip # 上传路径
+          asset_name: telegram-bot-api-windows-x86.zip # 资源名
+          asset_content_type: application/zip
     build-macos-intel:
       runs-on: macos-latest
       steps:
@@ -67,3 +115,48 @@ jobs:
         with:
           name: telegram-bot-api-macos-build-intel
           path: telegram-bot-api/bin/
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # 上传网址，无需改动
+          asset_path: telegram-bot-api-macos-intel.zip # 上传路径
+          asset_name: telegram-bot-api-macos-intel.zip # 资源名
+          asset_content_type: application/zip
+    build-freebsd-bin:
+      runs-on: macos-12
+      name: A job to run test in FreeBSD
+      steps:
+      - uses: actions/checkout@v2
+      - name: Build in FreeBSD
+        id: build
+        uses: vmactions/freebsd-vm@v0
+        with:
+          usesh: true
+          mem: 4096
+          prepare: |
+            pkg install -y curl
+            pkg upgrade  -y
+            pkg install  -y git
+            pkg install  -y gperf
+            pkg install  -y cmake
+            pkg install  -y zip
+          run: |
+          sh ./build-freebsd.csh
+      - name: Upload Artifact[free-bsd]
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: telegram-bot-api-free-bsd
+          path: telegram-bot-api/bin/
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # 上传网址，无需改动
+          asset_path: telegram-bot-api-freebsd-build.zip # 上传路径
+          asset_name: telegram-bot-api-freebsd-build.zip # 资源名
+          asset_content_type: application/zip

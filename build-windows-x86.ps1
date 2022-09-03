@@ -12,3 +12,5 @@ cmake -A Win32 -DCMAKE_INSTALL_PREFIX:PATH=.. -DCMAKE_TOOLCHAIN_FILE:FILEPATH=..
 cmake --build . --target install --config Release
 cd ../..
 dir telegram-bot-api/bin/telegram-bot-api*
+
+Compress-Archive .\telegram-bot-api\bin\* telegram-bot-api-windows-x86.zip

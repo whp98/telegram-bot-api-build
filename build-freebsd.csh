@@ -7,3 +7,4 @@ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=.. ..
 cmake --build . --target install
 cd ../..
 ls -l telegram-bot-api/bin/telegram-bot-api*
+zip -r telegram-bot-api-freebsd-build.zip telegram-bot-api/bin/*
