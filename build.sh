@@ -1,6 +1,7 @@
 #!/bin/sh
 sudo su
-sudo echo '
+uname -a
+echo '
 deb https://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
 # deb-src https://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
 
