@@ -31,3 +31,8 @@ jobs:
       - name: Build
         run: '& $env:GITHUB_ACTION_PATH/build-windows-x64.ps1'
         shell: pwsh
+      - name: Upload Artifact[Windows-x64]
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: telegram-bot-api-Windows-msvc-build-x64
+          path: telegram-bot-api\bin\telegram-bot-api.exe
