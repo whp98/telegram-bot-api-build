@@ -1,12 +1,25 @@
 name: build-linux-action
 on: [push]
 jobs:
-  build-linux:
+  # build-linux-clang:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - run: sh build-clang.sh
+  #     - name: Upload Artifact[linux-clang-x64]
+  #       uses: actions/upload-artifact@v1.0.0
+  #       with:
+  #         name: telegram-bot-api-linux-clang-buildx64
+  #         path: telegram-bot-api\bin\telegram-bot-api
+  build-linux-g++:
     runs-on: ubuntu-latest
     steps:
-      # - uses: egor-tensin/setup-clang@v1
-      #   with:
-      #     version: 14
-      #     platform: x64
+      - name: 拉取代码
       - uses: actions/checkout@v3
-      - run: sh build.sh
+      - name: 运行编译
+      - run: sh build-g++.sh
+      - name: Upload Artifact[linux-g++-x64]
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: telegram-bot-api-linux-g++-buildx64
+          path: telegram-bot-api\bin\telegram-bot-api

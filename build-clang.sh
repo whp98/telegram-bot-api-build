@@ -19,7 +19,6 @@ deb http://azure.archive.ubuntu.com/ubuntu/ jammy partner
 # deb-src http://azure.archive.ubuntu.com/ubuntu/ jammy partner
 ' | sudo tee -a /etc/apt/sources.list
 cat /etc/apt/sources.list
-wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install clang-14 lldb-14 lld-14
