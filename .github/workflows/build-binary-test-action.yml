@@ -24,6 +24,7 @@ jobs:
       uses: vmactions/freebsd-vm@v0
       with:
         usesh: false
+        mem: 4096
         run: |
           csh build-freebsd.csh
     - name: Upload Artifact[free-bsd]
