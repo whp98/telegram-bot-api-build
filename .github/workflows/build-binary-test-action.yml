@@ -17,6 +17,11 @@ jobs:
       with:
         name: telegram-bot-api-macos-build-m1
         path: telegram-bot-api/bin/
-
+      - name: Archive Artifacts
+      uses: thedoctor0/zip-release@master
+      with:
+        type: "zip"
+        filename: AppName-${{github.ref_name}}-windows.zip
+        directory: build/windows/runner/Release
 
 
