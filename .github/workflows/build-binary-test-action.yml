@@ -1,5 +1,8 @@
 name: build-binary-test-action
-on: [push]
+on:
+  push:
+    paths:
+      - '**.yml'
 jobs:
   # build-macos-m1:
   #   runs-on: [macos, arm64]
