@@ -18,6 +18,16 @@ jobs:
         run: |
           sudo apt-get install zip
           zip -9 telegram-bot-api-linux-clang-build-x64.zip telegram-bot-api/bin/*
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
@@ -42,6 +52,16 @@ jobs:
         run: |
           sudo apt-get install zip
           zip -9 telegram-bot-api-linux-g++-build-x64.zip telegram-bot-api/bin/*
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
@@ -67,6 +87,16 @@ jobs:
         with:
           name: telegram-bot-api-Windows-msvc-build-x64
           path: telegram-bot-api\bin\
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
@@ -92,6 +122,16 @@ jobs:
         with:
           name: telegram-bot-api-Windows-msvc-build-x86
           path: telegram-bot-api\bin\
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
@@ -115,6 +155,16 @@ jobs:
       with:
         name: telegram-bot-api-macos-build-intel
         path: telegram-bot-api/bin/
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1
@@ -150,6 +200,16 @@ jobs:
       with:
         name: telegram-bot-api-free-bsd
         path: telegram-bot-api/bin/
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1
