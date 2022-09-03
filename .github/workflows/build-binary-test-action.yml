@@ -23,10 +23,16 @@ jobs:
       id: build
       uses: vmactions/freebsd-vm@v0
       with:
-        usesh: false
+        usesh: true
         mem: 4096
+        prepare: |
+          pkg install -y curl
+          pkg upgrade  -y
+          pkg install  -y git
+          pkg install  -y gperf
+          pkg install  -y cmake
         run: |
-          csh build-freebsd.csh
+          build-freebsd.csh
     - name: Upload Artifact[free-bsd]
       uses: actions/upload-artifact@v1.0.0
       with:

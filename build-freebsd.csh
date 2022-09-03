@@ -1,5 +1,3 @@
-sudo pkg upgrade  -y
-sudo pkg install  -y git gperf cmake 
 git clone --recursive https://github.com/tdlib/telegram-bot-api.git
 cd telegram-bot-api
 rm -rf build
