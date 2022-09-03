@@ -27,6 +27,7 @@ jobs:
       - uses: TheMrMilchmann/setup-msvc-dev@v2
         with:
           arch: x64
+      - uses: actions/checkout@v3
       - name: Build
         run: |
           .\build-windows-x64.ps1
