@@ -1,5 +1,8 @@
 name: build-binary-action
-on: [push]
+on:
+  push:
+    tags:
+      - v*
 jobs:
   build-linux-clang:
     runs-on: ubuntu-latest
