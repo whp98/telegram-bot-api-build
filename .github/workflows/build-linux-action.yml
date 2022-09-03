@@ -29,4 +29,5 @@ jobs:
           arch: x64
       - uses: actions/checkout@v3
       - name: Build
-        run: build-windows-x64.ps1
+        run: '& $env:GITHUB_ACTION_PATH/build-windows-x64.ps1'
+        shell: pwsh
