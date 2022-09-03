@@ -144,7 +144,7 @@ jobs:
             pkg install  -y cmake
             pkg install  -y zip
           run: |
-          sh ./build-freebsd.csh
+            sh ./build-freebsd.csh
       - name: Upload Artifact[free-bsd]
         uses: actions/upload-artifact@v1.0.0
         with:
