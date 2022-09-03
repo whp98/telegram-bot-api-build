@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo -i
+sudo su
 apt-get update
 apt-get upgrade
 apt-get install make git zlib1g-dev libssl-dev gperf cmake g++
