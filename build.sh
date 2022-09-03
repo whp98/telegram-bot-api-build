@@ -1,14 +1,20 @@
 #!/bin/sh
 sudo su
 sudo echo '
-deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy main
-deb-src http://apt.llvm.org/jammy/ llvm-toolchain-jammy main
-# 14
-deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main
-deb-src http://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main
-# 15
-deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-15 main
-deb-src http://apt.llvm.org/jammy/ llvm-toolchain-jammy-15 main
+deb https://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+# deb-src https://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+
+deb https://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+# deb-src https://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+
+deb https://archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+# deb-src https://archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+
+deb https://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+# deb-src https://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+
+deb http://archive.canonical.com/ubuntu/ jammy partner
+# deb-src http://archive.canonical.com/ubuntu/ jammy partner
 ' >> /etc/apt/sources.list
 cat /etc/apt/sources.list
 wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
