@@ -1,4 +1,4 @@
-name: build-linux-action
+name: build-binary-action
 on: [push]
 jobs:
   build-linux-clang:
