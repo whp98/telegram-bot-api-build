@@ -54,3 +54,16 @@ jobs:
         with:
           name: telegram-bot-api-Windows-msvc-build-x86
           path: telegram-bot-api\bin\
+    build-macos-intel:
+      runs-on: macos-latest
+      steps:
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+      - uses: actions/checkout@v3
+      - run: sh build-macos-intel.sh
+      - name: Upload Artifact[macos-intel]
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: telegram-bot-api-macos-build-intel
+          path: telegram-bot-api/bin/
