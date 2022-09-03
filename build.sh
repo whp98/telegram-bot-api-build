@@ -3,20 +3,20 @@ sudo su
 uname -a
 whoami
 echo '
-deb https://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
-# deb-src https://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+deb https://azure.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+# deb-src https://azure.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
 
-deb https://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
-# deb-src https://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+deb https://azure.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+# deb-src https://azure.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
 
-deb https://archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
-# deb-src https://archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+deb https://azure.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+# deb-src https://azure.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
 
-deb https://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
-# deb-src https://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+deb https://azure.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+# deb-src https://azure.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
 
-deb http://archive.canonical.com/ubuntu/ jammy partner
-# deb-src http://archive.canonical.com/ubuntu/ jammy partner
+deb http://azure.archive.ubuntu.com/ubuntu/ jammy partner
+# deb-src http://azure.archive.ubuntu.com/ubuntu/ jammy partner
 ' | sudo tee -a /etc/apt/sources.list
 cat /etc/apt/sources.list
 wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
