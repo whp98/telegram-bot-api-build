@@ -1,16 +1,36 @@
 name: build-binary-test-action
 on: [push]
 jobs:
-  build-macos-m1:
-    runs-on: [macos, arm64]
+  # build-macos-m1:
+  #   runs-on: [macos, arm64]
+  #   steps:
+  #   - uses: maxim-lobanov/setup-xcode@v1
+  #     with:
+  #       xcode-version: latest-stable
+  #   - uses: actions/checkout@v3
+  #   - run: sh build-macos-m1.sh
+  #   - name: Upload Artifact[macos-m1]
+  #     uses: actions/upload-artifact@v1.0.0
+  #     with:
+  #       name: telegram-bot-api-macos-build-m1
+  #       path: telegram-bot-api/bin/
+  build-freebsd-bin:
+    runs-on: macos-12
+    name: A job to run test in FreeBSD
+    env:
     steps:
-    - uses: maxim-lobanov/setup-xcode@v1
+    - uses: actions/checkout@v2
+    - name: Build in FreeBSD
+      id: build
+      uses: vmactions/freebsd-vm@v0
       with:
-        xcode-version: latest-stable
-    - uses: actions/checkout@v3
-    - run: sh build-macos-m1.sh
-    - name: Upload Artifact[macos-m1]
+        usesh: false
+        run: |
+          csh build-freebsd.csh
+    - name: Upload Artifact[free-bsd]
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: telegram-bot-api-macos-build-m1
+        name: telegram-bot-api-free-bsd
         path: telegram-bot-api/bin/
+
+
