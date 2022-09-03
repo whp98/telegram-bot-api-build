@@ -1,8 +1,8 @@
 #!/bin/sh
 sudo su
-apt-get update
-apt-get upgrade
-apt-get install make git zlib1g-dev libssl-dev gperf cmake g++
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install make git zlib1g-dev libssl-dev gperf cmake g++
 git clone --recursive https://github.com/tdlib/telegram-bot-api.git
 cd telegram-bot-api
 rm -rf build
