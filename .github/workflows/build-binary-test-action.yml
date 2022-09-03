@@ -17,7 +17,6 @@ jobs:
   build-freebsd-bin:
     runs-on: macos-12
     name: A job to run test in FreeBSD
-    env:
     steps:
     - uses: actions/checkout@v2
     - name: Build in FreeBSD
