@@ -34,7 +34,7 @@ jobs:
         usesh: true
         mem: 8192
         prepare: |
-          export PKG_PATH=https://ftp.netbsd.org//pub/pkgsrc/packages/NetBSD/x86_64/9.0/All/
+          export PKG_PATH=https://ftp.netbsd.org//pub/pkgsrc/packages/NetBSD/x86_64/9.2/All/
           pkg_add git gperf cmake openssl gcc5-aux
         run: |
           sh ./build-netbsd.sh
