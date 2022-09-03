@@ -3,17 +3,17 @@ sudo su
 uname -a
 whoami
 echo '
-deb https://azure.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
-# deb-src https://azure.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+deb http://azure.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
+# deb-src http://azure.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
 
-deb https://azure.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
-# deb-src https://azure.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+deb http://azure.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
+# deb-src http://azure.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
 
-deb https://azure.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
-# deb-src https://azure.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+deb http://azure.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+# deb-src http://azure.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
 
-deb https://azure.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
-# deb-src https://azure.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+deb http://azure.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+# deb-src http://azure.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
 
 deb http://azure.archive.ubuntu.com/ubuntu/ jammy partner
 # deb-src http://azure.archive.ubuntu.com/ubuntu/ jammy partner
