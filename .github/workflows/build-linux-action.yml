@@ -14,9 +14,7 @@ jobs:
   build-linux-g++:
     runs-on: ubuntu-latest
     steps:
-      - name: 拉取代码
       - uses: actions/checkout@v3
-      - name: 运行编译
       - run: sh build-g++.sh
       - name: Upload Artifact[linux-g++-x64]
         uses: actions/upload-artifact@v1.0.0
