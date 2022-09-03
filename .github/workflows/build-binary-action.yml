@@ -127,7 +127,7 @@ jobs:
         asset_content_type: application/zip
   build-freebsd-bin:
     runs-on: macos-12
-    name: A job to run test in FreeBSD
+    name: build-freebsd-bin-in-macos-vm
     steps:
     - uses: actions/checkout@v2
     - name: Build in FreeBSD
