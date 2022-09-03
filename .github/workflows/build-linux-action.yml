@@ -9,8 +9,8 @@ jobs:
       - name: Upload Artifact[linux-clang-x64]
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: telegram-bot-api-linux-clang-buildx64
-          path: telegram-bot-api/bin/telegram-bot-api
+          name: telegram-bot-api-linux-clang-build-x64
+          path: telegram-bot-api/bin/
   build-linux-gpp:
     runs-on: ubuntu-latest
     steps:
@@ -19,8 +19,8 @@ jobs:
       - name: Upload Artifact[linux-g++-x64]
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: telegram-bot-api-linux-g++-buildx64
-          path: telegram-bot-api/bin/telegram-bot-api
+          name: telegram-bot-api-linux-g++-build-x64
+          path: telegram-bot-api/bin/
   build-windows-x64:
     runs-on: windows-latest
     steps:
@@ -35,4 +35,19 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           name: telegram-bot-api-Windows-msvc-build-x64
-          path: telegram-bot-api\bin\telegram-bot-api.exe
+          path: telegram-bot-api\bin\
+  build-windows-x86:
+    runs-on: windows-latest
+    steps:
+      - uses: TheMrMilchmann/setup-msvc-dev@v2
+        with:
+          arch: x86
+      - uses: actions/checkout@v3
+      - name: Build
+        run: .\build-windows-x86.ps1
+        shell: powershell
+      - name: Upload Artifact[Windows-x86]
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: telegram-bot-api-Windows-msvc-build-x86
+          path: telegram-bot-api\bin\
