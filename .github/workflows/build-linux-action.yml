@@ -11,7 +11,7 @@ jobs:
   #       with:
   #         name: telegram-bot-api-linux-clang-buildx64
   #         path: telegram-bot-api\bin\telegram-bot-api
-  build-linux-g++:
+  build-linux-gpp:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
