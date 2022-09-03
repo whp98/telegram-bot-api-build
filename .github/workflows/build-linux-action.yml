@@ -10,7 +10,7 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           name: telegram-bot-api-linux-clang-buildx64
-          path: telegram-bot-api\bin\telegram-bot-api
+          path: telegram-bot-api/bin/telegram-bot-api
   build-linux-gpp:
     runs-on: ubuntu-latest
     steps:
@@ -20,4 +20,4 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           name: telegram-bot-api-linux-g++-buildx64
-          path: telegram-bot-api\bin\telegram-bot-api
+          path: telegram-bot-api/bin/telegram-bot-api
