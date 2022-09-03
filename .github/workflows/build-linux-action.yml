@@ -29,8 +29,8 @@ jobs:
           arch: x64
       - uses: actions/checkout@v3
       - name: Build
-        run: '& $env:GITHUB_ACTION_PATH/build-windows-x64.ps1'
-        shell: pwsh
+        run: .\build-windows-x64.ps1
+        shell: powershell
       - name: Upload Artifact[Windows-x64]
         uses: actions/upload-artifact@v1.0.0
         with:
