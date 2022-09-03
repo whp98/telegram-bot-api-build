@@ -23,38 +23,38 @@ jobs:
   #       type: "zip"
   #       filename: AppName-${{github.ref_name}}-windows.zip
   #       directory: build/windows/runner/Release
-  # build-openbsd-bin:
-  #   runs-on: macos-12
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build in OpenBSD
-  #     id: build
-  #     uses: vmactions/openbsd-vm@v0
-  #     with:
-  #       usesh: true
-  #       mem: 4096
-  #       prepare: |
-  #         pkg_add -z git gperf php-7.2.10 cmake
-  #       run: |
-  #         sh ./build-openbsd.ksh
-  #   - name: Upload Artifact[open-bsd]
-  #     uses: actions/upload-artifact@v1.0.0
-  #     with:
-  #       name: telegram-bot-api-open-bsd
-  #       path: telegram-bot-api/bin/
-  #   - name: Archive Artifacts
-  #     uses: thedoctor0/zip-release@master
-  #     with:
-  #       type: "zip"
-  #       filename: telegram-bot-api-${{github.ref_name}}-openbsd.zip
-  #       directory: telegram-bot-api/bin/
-  #   - name: Create Release
-  #     id: create_release
-  #     uses: ncipollo/release-action@v1
-  #     with:
-  #       artifacts: "telegram-bot-api-${{github.ref_name}}-openbsd.zip"
-  #       token: ${{ secrets.GITHUB_TOKEN }}
-  #       allowUpdates: true
+  build-openbsd-bin:
+    runs-on: macos-12
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build in OpenBSD
+      id: build
+      uses: vmactions/openbsd-vm@v0
+      with:
+        usesh: true
+        mem: 4096
+        prepare: |
+          pkg_add -z git gperf php-7.2.10 cmake
+        run: |
+          sh ./build-openbsd.ksh
+    - name: Upload Artifact[open-bsd]
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: telegram-bot-api-open-bsd
+        path: telegram-bot-api/bin/
+    - name: Archive Artifacts
+      uses: thedoctor0/zip-release@master
+      with:
+        type: "zip"
+        filename: telegram-bot-api-openbsd.zip
+        path: telegram-bot-api/bin/
+    - name: Create Release
+      id: create_release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "telegram-bot-api-openbsd.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        allowUpdates: true
   build-netbsd-bin:
     runs-on: macos-12
     steps:
@@ -79,12 +79,12 @@ jobs:
       uses: thedoctor0/zip-release@master
       with:
         type: "zip"
-        filename: telegram-bot-api-${{github.ref_name}}-netbsd.zip
-        directory: telegram-bot-api/bin/
+        filename: telegram-bot-api-netbsd.zip
+        path: telegram-bot-api/bin/
     - name: Create Release
       id: create_release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "telegram-bot-api-${{github.ref_name}}-netbsd.zip"
+        artifacts: "telegram-bot-api-netbsd.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
         allowUpdates: true
