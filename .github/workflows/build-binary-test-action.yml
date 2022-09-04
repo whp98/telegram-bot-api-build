@@ -4,22 +4,22 @@ on:
     tags:
       - test*
 jobs:
-  # build-macos-m1:
-  #   runs-on: [macos, arm64]
-  #   steps:
-  #   - uses: maxim-lobanov/setup-xcode@v1
-  #     with:
-  #       xcode-version: latest-stable
-  #   - uses: actions/checkout@v3
-  #   - run: sh build-macos-m1.sh
-  #   - name: Upload Artifact[macos-m1]
-  #     uses: actions/upload-artifact@v1.0.0
-  #     with:
-  #       name: telegram-bot-api-macos-build-m1
-  #       path: telegram-bot-api/bin/
-  #   - name: Archive Artifacts
-  #     uses: thedoctor0/zip-release@master
-  #     with:
-  #       type: "zip"
-  #       filename: AppName-${{github.ref_name}}-windows.zip
-  #       directory: build/windows/runner/Release
+  build-macos-m1:
+    runs-on: [macos, arm64]
+    steps:
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
+    - uses: actions/checkout@v3
+    - run: sh build-macos-m1.sh
+    - name: Upload Artifact[macos-m1]
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: telegram-bot-api-macos-build-m1
+        path: telegram-bot-api/bin/
+    - name: Archive Artifacts
+      uses: thedoctor0/zip-release@master
+      with:
+        type: "zip"
+        filename: AppName-${{github.ref_name}}-windows.zip
+        directory: build/windows/runner/Release
