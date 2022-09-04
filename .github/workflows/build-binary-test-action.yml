@@ -41,7 +41,7 @@ jobs:
           ln -s /usr/pkg/gcc12/x86_64--netbsd /usr/pkg/gcc12/i486--netbsdelf
           ls -l /usr/pkg/gcc12/i486--netbsdelf
         run: |
-          #sh ./build-netbsd.sh
+          sh ./build-netbsd.sh
           echo test
     - name: Upload Artifact[net-bsd]
       uses: actions/upload-artifact@v1.0.0
