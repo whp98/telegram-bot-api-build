@@ -1,4 +1,4 @@
-git clone --recursive https://github.com/whp98/telegram-bot-api.git
+git clone --recursive https://github.com/tdlib/telegram-bot-api.git
 cd telegram-bot-api
 rm -rf build
 mkdir build
