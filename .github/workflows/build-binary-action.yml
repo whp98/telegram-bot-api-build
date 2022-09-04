@@ -4,7 +4,7 @@ on:
     tags:
       - v*
 jobs:
-  build-linux-clang:
+  build-linux-clang-x64:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -34,7 +34,7 @@ jobs:
           asset_path: telegram-bot-api-linux-clang-build-x64.zip # 上传路径
           asset_name: telegram-bot-api-linux-clang-build-x64.zip # 资源名
           asset_content_type: application/zip
-  build-linux-gpp:
+  build-linux-gpp-x64:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -126,7 +126,7 @@ jobs:
           asset_path: telegram-bot-api-windows-x86.zip # 上传路径
           asset_name: telegram-bot-api-windows-x86.zip # 资源名
           asset_content_type: application/zip
-  build-macos-intel:
+  build-macos-x64:
     runs-on: macos-latest
     steps:
     - uses: maxim-lobanov/setup-xcode@v1
@@ -155,7 +155,7 @@ jobs:
         asset_path: telegram-bot-api-macos-intel-x64.zip # 上传路径
         asset_name: telegram-bot-api-macos-intel-x64.zip # 资源名
         asset_content_type: application/zip
-  build-freebsd-bin:
+  build-freebsd-x64:
     runs-on: macos-12
     steps:
     - uses: actions/checkout@v2
@@ -195,7 +195,7 @@ jobs:
         asset_path: telegram-bot-api-freebsd-build-x64.zip # 上传路径
         asset_name: telegram-bot-api-freebsd-build-x64.zip # 资源名
         asset_content_type: application/zip
-  build-openbsd-bin:
+  build-openbsd-x64:
     runs-on: macos-12
     steps:
     - uses: actions/checkout@v2
@@ -227,7 +227,7 @@ jobs:
         artifacts: "telegram-bot-api-openbsd-x64.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
         allowUpdates: true
-  build-netbsd-bin:
+  build-netbsd-x64:
     runs-on: macos-12
     steps:
     - uses: actions/checkout@v2
