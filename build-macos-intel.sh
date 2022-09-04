@@ -11,4 +11,4 @@ cmake --build . --target install
 cd ../..
 ls -l telegram-bot-api/bin/telegram-bot-api*
 
-zip -r -X telegram-bot-api-macos-intel.zip   telegram-bot-api/bin
+zip -r -X telegram-bot-api-macos-intel-x64.zip   telegram-bot-api/bin
