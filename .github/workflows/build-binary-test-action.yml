@@ -36,8 +36,11 @@ jobs:
         prepare: |
           export PKG_PATH=https://ftp.netbsd.org//pub/pkgsrc/packages/NetBSD/x86_64/9.2/All/
           pkg_add git gperf cmake openssl gcc12 gcc12-libs
+          find /usr/pkg/gcc5
+          find /usr/pkg/gcc12
         run: |
-          sh ./build-netbsd.sh
+          #sh ./build-netbsd.sh
+          echo test
     - name: Upload Artifact[net-bsd]
       uses: actions/upload-artifact@v1.0.0
       with:
