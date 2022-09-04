@@ -236,12 +236,18 @@ jobs:
       uses: vmactions/netbsd-vm@v0
       with:
         usesh: true
-        mem: 4096
+        mem: 8192
         prepare: |
-          export PKG_PATH=https://ftp.netbsd.org//pub/pkgsrc/packages/NetBSD/i386/9.0/All/
-          pkg_add git gperf cmake openssl gcc5-aux
+          export PKG_PATH=https://ftp.netbsd.org//pub/pkgsrc/packages/NetBSD/x86_64/9.2/All/
+          pkg_add git gperf cmake openssl gcc12 gcc12-libs
+          mkdir /usr/pkg/gcc5
+          #find /usr/pkg/gcc5
+          #find /usr/pkg/gcc12
+          ln -s /usr/pkg/gcc12/x86_64--netbsd /usr/pkg/gcc5/i486--netbsdelf
+          ls -l /usr/pkg/gcc5/i486--netbsdelf
         run: |
           sh ./build-netbsd.sh
+          echo test
     - name: Upload Artifact[net-bsd]
       uses: actions/upload-artifact@v1.0.0
       with:
