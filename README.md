@@ -1,4 +1,4 @@
-# Telegram Bot API Action Build | [中文](./README-zh.md)
+# Telegram Bot API Server Action Build | [中文](./README-zh.md)
 telegram bot api action build
 
 Use Github action build [telegram-bot-api](https://github.com/tdlib/telegram-bot-api.git)
