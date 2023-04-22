@@ -36,7 +36,7 @@ jobs:
         - name: Generate Zip
           run: |
             sudo apt-get install zip
-            zip -9 telegram-bot-api-linux-g++-build-x64.zip telegram-bot-api/bin/*
+            zip -9 telegram-bot-api-linux-g++-ubuntu20-build-x64.zip telegram-bot-api/bin/*
         - name: Create Release
           id: create_release
           uses: ncipollo/release-action@v1
@@ -51,5 +51,5 @@ jobs:
           with:
             upload_url: ${{ steps.create_release.outputs.upload_url }} # 上传网址，无需改动
             asset_path: telegram-bot-api-linux-g++-ubuntu20-build-x64.zip # 上传路径
-            asset_name: telegram-bot-api-linux-g++--ubuntu20-build-x64.zip # 资源名
+            asset_name: telegram-bot-api-linux-g++-ubuntu20-build-x64.zip # 资源名
             asset_content_type: application/zip
