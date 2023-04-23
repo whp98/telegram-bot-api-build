@@ -23,8 +23,8 @@ jobs:
   #       type: "zip"
   #       filename: AppName-${{github.ref_name}}-windows.zip
   #       directory: build/windows/runner/Release
-  build-linux-gpp-x64:
-      runs-on: ubuntu-latest
+  build-linux-ubuntu2004-gpp-x64:
+      runs-on: ubuntu-20.04
       steps:
         - uses: actions/checkout@v3
         - run: sh build-linux-g++.sh
