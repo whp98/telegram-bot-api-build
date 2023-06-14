@@ -195,6 +195,38 @@ jobs:
         asset_path: telegram-bot-api-freebsd-build-x64.zip # 上传路径
         asset_name: telegram-bot-api-freebsd-build-x64.zip # 资源名
         asset_content_type: application/zip
+  build-openbsd-x64:
+    runs-on: macos-12
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build in OpenBSD
+      id: build
+      uses: vmactions/openbsd-vm@v0
+      with:
+        usesh: true
+        mem: 4096
+        prepare: |
+          pkg_add -z git gperf php-7.2.10 cmake
+        run: |
+          sh ./build-openbsd.ksh
+    - name: Upload Artifact[open-bsd]
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: telegram-bot-api-open-bsd
+        path: telegram-bot-api/bin/
+    - name: Archive Artifacts
+      uses: thedoctor0/zip-release@master
+      with:
+        type: "zip"
+        filename: telegram-bot-api-openbsd-x64.zip
+        path: telegram-bot-api/bin/
+    - name: Create Release
+      id: create_release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "telegram-bot-api-openbsd-x64.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        allowUpdates: true
   build-netbsd-x64:
     runs-on: macos-12
     steps:
@@ -234,33 +266,3 @@ jobs:
         artifacts: "telegram-bot-api-netbsd-x64.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
         allowUpdates: true
-  build-linux-ubuntu2004-gpp-x64:
-      runs-on: ubuntu-20.04
-      steps:
-        - uses: actions/checkout@v3
-        - run: sh build-linux-g++.sh
-        - name: Upload Artifact[linux-g++-x64]
-          uses: actions/upload-artifact@v1.0.0
-          with:
-            name: telegram-bot-api-linux-g++-build-x64
-            path: telegram-bot-api/bin/
-        - name: Generate Zip
-          run: |
-            sudo apt-get install zip
-            zip -9 telegram-bot-api-linux-g++-ubuntu20-build-x64.zip telegram-bot-api/bin/*
-        - name: Create Release
-          id: create_release
-          uses: ncipollo/release-action@v1
-          with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-            allowUpdates: true
-        - name: Upload Release Asset
-          id: upload-release-asset
-          uses: actions/upload-release-asset@v1
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            upload_url: ${{ steps.create_release.outputs.upload_url }} # 上传网址，无需改动
-            asset_path: telegram-bot-api-linux-g++-ubuntu20-build-x64.zip # 上传路径
-            asset_name: telegram-bot-api-linux-g++-ubuntu20-build-x64.zip # 资源名
-            asset_content_type: application/zip
